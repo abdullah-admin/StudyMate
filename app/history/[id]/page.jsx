@@ -36,12 +36,12 @@ export default function HistoryDetailPage() {
 
   if (!mounted) {
     return (
-      <main className="flex min-h-screen flex-col bg-brand-dark text-brand-light p-6 md:p-12"></main>
+      <main className="flex min-h-screen flex-col bg-brand-dark text-brand-light p-4 sm:p-6 md:p-12"></main>
     );
   }
 
   return (
-    <main className="flex min-h-screen flex-col bg-brand-dark text-brand-light p-6 md:p-12">
+    <main className="flex min-h-screen flex-col bg-brand-dark text-brand-light p-4 sm:p-6 md:p-12">
       <div className="max-w-3xl w-full mx-auto space-y-12">
         {/* Header */}
         <header className="flex items-center justify-between border-b border-brand-light/8 pb-6">
@@ -53,13 +53,13 @@ export default function HistoryDetailPage() {
           <div className="flex items-center space-x-6">
             <Link
               href="/history"
-              className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold"
+              className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold py-3 inline-flex items-center min-h-[44px]"
             >
               History
             </Link>
             <Link
               href="/tool"
-              className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold"
+              className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold py-3 inline-flex items-center min-h-[44px]"
             >
               Tool
             </Link>
@@ -91,7 +91,7 @@ export default function HistoryDetailPage() {
             <div className="pt-2">
               <Link
                 href="/history"
-                className="inline-block bg-brand-light text-brand-dark font-extrabold px-6 py-3 hover:bg-brand-light/95 transition-all text-sm rounded-none"
+                className="inline-flex items-center justify-center bg-brand-light text-brand-dark font-extrabold px-6 py-3 hover:bg-brand-light/95 transition-all text-sm rounded-none min-h-[44px]"
               >
                 Back to History
               </Link>

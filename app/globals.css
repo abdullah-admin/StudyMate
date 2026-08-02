@@ -12,3 +12,13 @@ body {
   background-color: var(--color-brand-light);
   color: var(--color-brand-dark);
 }
+
+.spotlight-layer {
+  display: none;
+}
+
+@media (hover: hover) {
+  .spotlight-layer {
+    display: flex;
+  }
+}

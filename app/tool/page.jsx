@@ -230,7 +230,7 @@ SUMMARY:
   };
 
   return (
-    <main className="flex min-h-screen flex-col bg-brand-dark text-brand-light p-6 md:p-12">
+    <main className="flex min-h-screen flex-col bg-brand-dark text-brand-light p-4 sm:p-6 md:p-12">
       <div className="max-w-3xl w-full mx-auto space-y-12">
         {/* Header */}
         <header className="flex items-center justify-between border-b border-brand-light/8 pb-6">
@@ -256,7 +256,7 @@ SUMMARY:
         </header>
 
         {/* Input Form */}
-        <section className="bg-brand-light/4 border border-brand-light/8 p-6 md:p-8 space-y-6">
+        <section className="bg-brand-light/4 border border-brand-light/8 p-4 sm:p-6 md:p-8 space-y-6">
           <form onSubmit={handleGenerate} className="space-y-6">
             <div className="space-y-2">
               <label

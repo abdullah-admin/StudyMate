@@ -22,7 +22,7 @@ export default function HistoryPage() {
   if (!mounted) {
     // Avoid server-side rendering hydration issues
     return (
-      <main className="flex min-h-screen flex-col bg-brand-dark text-brand-light p-6 md:p-12"></main>
+      <main className="flex min-h-screen flex-col bg-brand-dark text-brand-light p-4 sm:p-6 md:p-12"></main>
     );
   }
 
@@ -53,7 +53,7 @@ export default function HistoryPage() {
   });
 
   return (
-    <main className="flex min-h-screen flex-col bg-brand-dark text-brand-light p-6 md:p-12">
+    <main className="flex min-h-screen flex-col bg-brand-dark text-brand-light p-4 sm:p-6 md:p-12">
       <div className="max-w-3xl w-full mx-auto space-y-12">
         {/* Header */}
         <header className="flex items-center justify-between border-b border-brand-light/8 pb-6">
@@ -64,7 +64,7 @@ export default function HistoryPage() {
           </h2>
           <Link
             href="/tool"
-            className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold"
+            className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold py-3 inline-flex items-center min-h-[44px]"
           >
             ← Back to Tool
           </Link>
@@ -110,13 +110,13 @@ export default function HistoryPage() {
                           <Link
                             key={entry.id}
                             href={`/history/${entry.id}`}
-                            className="block bg-brand-light/4 border border-brand-light/8 hover:border-brand-light/20 p-4 transition-all duration-200 select-none hover:bg-brand-light/[6%]"
+                            className="block bg-brand-light/4 border border-brand-light/8 hover:border-brand-light/20 p-4 transition-all duration-200 select-none hover:bg-brand-light/[6%] min-h-[44px]"
                           >
                             <div className="flex items-center justify-between">
-                              <span className="font-sans font-bold text-base md:text-lg text-brand-light">
+                              <span className="font-sans font-bold text-base md:text-lg text-brand-light break-words mr-4">
                                 {entry.topic}
                               </span>
-                              <span className="font-mono text-xs text-brand-light/50">
+                              <span className="font-mono text-xs text-brand-light/50 shrink-0">
                                 {timeString}
                               </span>
                             </div>
