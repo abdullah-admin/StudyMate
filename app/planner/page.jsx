@@ -214,7 +214,7 @@ Include at least one revision day near the end if days allow, weighted toward we
               href="/tool"
               className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold"
             >
-              Tool
+              Ask
             </Link>
             <Link
               href="/"

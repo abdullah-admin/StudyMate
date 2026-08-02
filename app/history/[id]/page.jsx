@@ -67,7 +67,7 @@ export default function HistoryDetailPage() {
               href="/tool"
               className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold py-3 inline-flex items-center min-h-[44px]"
             >
-              Tool
+              Ask
             </Link>
           </div>
         </header>
