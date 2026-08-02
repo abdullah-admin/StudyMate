@@ -32,12 +32,18 @@ export default function LandingPage() {
           <p className="text-base sm:text-lg md:text-xl text-brand-dark/70 font-medium max-w-xl mx-auto leading-relaxed">
             A concept-clearing companion designed specifically for Intermediate and FSc students.
           </p>
-          <div className="pt-6">
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/tool"
-              className="inline-flex items-center justify-center bg-brand-dark text-brand-light font-bold text-lg md:text-xl px-10 py-5 rounded-none hover:bg-brand-dark/95 active:scale-95 transition-all duration-200 min-h-[44px]"
+              className="inline-flex items-center justify-center bg-brand-dark text-brand-light font-bold text-lg md:text-xl px-10 py-5 rounded-none hover:bg-brand-dark/95 active:scale-95 transition-all duration-200 min-h-[44px] w-full sm:w-auto"
             >
-              Try StudyMate
+              Clear Concepts
+            </Link>
+            <Link
+              href="/planner"
+              className="inline-flex items-center justify-center border border-brand-dark bg-transparent text-brand-dark font-bold text-lg md:text-xl px-10 py-5 rounded-none hover:bg-brand-dark hover:text-brand-light active:scale-95 transition-all duration-200 min-h-[44px] w-full sm:w-auto"
+            >
+              Create Study Plan
             </Link>
           </div>
         </div>

@@ -58,6 +58,12 @@ export default function HistoryDetailPage() {
               History
             </Link>
             <Link
+              href="/planner"
+              className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold py-3 inline-flex items-center min-h-[44px]"
+            >
+              Planner
+            </Link>
+            <Link
               href="/tool"
               className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold py-3 inline-flex items-center min-h-[44px]"
             >
@@ -83,7 +89,71 @@ export default function HistoryDetailPage() {
           </div>
         ) : entry ? (
           <section className="space-y-8 animate-fadeIn">
-            <ResultCards studyData={entry} topic={entry.topic} isHistoryView={true} />
+            {entry.type === "planner" ? (
+              <div className="space-y-8">
+                <h3 className="text-sm font-bold tracking-widest text-brand-light/60 uppercase select-none">
+                  Study Plan: {entry.class}
+                </h3>
+
+                <div className="space-y-6">
+                  {/* Summary Info Card */}
+                  <div className="border border-brand-light/8 bg-brand-light/4 p-5 md:p-8 space-y-4">
+                    <h4 className="text-xs font-bold tracking-widest text-brand-light/60 uppercase select-none">
+                      Plan Overview
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-brand-light/80 text-sm md:text-base leading-relaxed">
+                      <div>
+                        <span className="text-brand-light/60 font-semibold block text-xs uppercase tracking-wider">
+                          Subjects
+                        </span>
+                        {entry.subjects
+                          ?.map((s) => `${s.subject} (${s.chapters} chapters)`)
+                          .join(", ")}
+                      </div>
+                      {entry.weakSubjects && (
+                        <div>
+                          <span className="text-brand-light/60 font-semibold block text-xs uppercase tracking-wider">
+                            Weak Subjects
+                          </span>
+                          {entry.weakSubjects}
+                        </div>
+                      )}
+                      <div>
+                        <span className="text-brand-light/60 font-semibold block text-xs uppercase tracking-wider">
+                          Timeline
+                        </span>
+                        {entry.days} days, {entry.hoursPerDay} hours per day
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Day-by-Day Card */}
+                  <div className="border border-brand-light/8 bg-brand-light/4 p-5 md:p-8 space-y-6">
+                    <h4 className="text-xs font-bold tracking-widest text-brand-light/60 uppercase select-none">
+                      Day-by-Day Schedule
+                    </h4>
+                    <div className="space-y-8 divide-y divide-brand-light/8">
+                      {entry.schedule?.dailyPlan?.map((day, dIdx) => (
+                        <div key={dIdx} className={`space-y-3 ${dIdx > 0 ? "pt-6" : ""}`}>
+                          <h5 className="font-sans font-bold text-brand-light text-base md:text-lg uppercase select-none">
+                            {day.title}
+                          </h5>
+                          <div className="space-y-3 text-brand-light/80 text-sm md:text-base leading-relaxed">
+                            {day.tasks?.map((task, tIdx) => (
+                              <p key={tIdx} className="break-words">
+                                {task}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <ResultCards studyData={entry} topic={entry.topic} isHistoryView={true} />
+            )}
           </section>
         ) : (
           <div className="border border-brand-light/8 bg-brand-light/4 p-12 text-center select-none space-y-6">

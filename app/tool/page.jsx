@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import ResultCards from "../../components/ResultCards";
+import { checkRateLimit } from "../../utils/rateLimiter";
 
 export default function ToolPage() {
   const [topic, setTopic] = useState("");
@@ -130,6 +131,12 @@ export default function ToolPage() {
     e.preventDefault();
     if (!topic.trim()) return;
 
+    const rateLimit = checkRateLimit("studymate_rate_limit_tool");
+    if (!rateLimit.allowed) {
+      setError(`Too many requests. Please wait ${rateLimit.waitTime} seconds before trying again.`);
+      return;
+    }
+
     setLoading(true);
     setError(null);
     setStudyData(null);
@@ -245,6 +252,12 @@ SUMMARY:
               className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold"
             >
               History
+            </Link>
+            <Link
+              href="/planner"
+              className="text-xs uppercase tracking-wider text-brand-light/60 hover:text-brand-light transition-colors font-semibold"
+            >
+              Planner
             </Link>
             <Link
               href="/"
