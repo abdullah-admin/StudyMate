@@ -37,7 +37,7 @@ export default function LandingPage() {
               href="/tool"
               className="inline-flex items-center justify-center bg-brand-dark text-brand-light font-bold text-lg md:text-xl px-10 py-5 rounded-none hover:bg-brand-dark/95 active:scale-95 transition-all duration-200 min-h-[44px] w-full sm:w-auto"
             >
-              Clear Concepts
+              Ask StudyMate
             </Link>
             <Link
               href="/planner"
