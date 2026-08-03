@@ -30,7 +30,7 @@ export default function LandingPage() {
             Study smarter, not longer.
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-brand-dark/70 font-medium max-w-xl mx-auto leading-relaxed">
-            A concept-clearing companion designed specifically for Intermediate and FSc students.
+            An AI study planner and concept-clearing companion designed specifically for Intermediate and FSc students.
           </p>
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
@@ -107,7 +107,7 @@ export default function LandingPage() {
                 Your history, saved
               </h3>
               <p className="text-brand-dark/65 text-base font-normal leading-relaxed">
-                Every topic you've studied, organized by date, one click away.
+                Every topic you&apos;ve studied, organized by date, one click away.
               </p>
             </div>
           </div>

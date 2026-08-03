@@ -14,6 +14,7 @@ export default function HistoryDetailPage() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     if (!id) {
       setLoading(false);
@@ -157,7 +158,7 @@ export default function HistoryDetailPage() {
           </section>
         ) : (
           <div className="border border-brand-light/8 bg-brand-light/4 p-12 text-center select-none space-y-6">
-            <p className="text-brand-light/60 text-base">This entry couldn't be found.</p>
+            <p className="text-brand-light/60 text-base">This entry couldn&apos;t be found.</p>
             <div className="pt-2">
               <Link
                 href="/history"

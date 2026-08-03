@@ -147,6 +147,9 @@ Include at least one revision day near the end if days allow, weighted toward we
       );
 
       if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error("Too many people are using this right now — please wait a minute and try again.");
+        }
         const errData = await response.json().catch(() => ({}));
         console.error("Gemini API Error Response:", errData);
         const errMsg = errData?.error?.message || `API request failed: ${response.status}`;
@@ -187,7 +190,11 @@ Include at least one revision day near the end if days allow, weighted toward we
       }
     } catch (err) {
       console.error(err);
-      setError("Something went wrong. Try again.");
+      if (err.message === "Too many people are using this right now — please wait a minute and try again.") {
+        setError(err.message);
+      } else {
+        setError("Something went wrong. Try again.");
+      }
     } finally {
       setLoading(false);
     }

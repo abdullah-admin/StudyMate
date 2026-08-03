@@ -195,6 +195,9 @@ SUMMARY:
       );
 
       if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error("Too many people are using this right now — please wait a minute and try again.");
+        }
         const errData = await response.json().catch(() => ({}));
         console.error("Gemini API Error Response:", errData);
         const errMsg = errData?.error?.message || `API request failed: ${response.status}`;
@@ -230,7 +233,11 @@ SUMMARY:
       }
     } catch (err) {
       console.error(err);
-      setError("Something went wrong. Try again.");
+      if (err.message === "Too many people are using this right now — please wait a minute and try again.") {
+        setError(err.message);
+      } else {
+        setError("Something went wrong. Try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -295,7 +302,7 @@ SUMMARY:
                 htmlFor="confusion"
                 className="text-xs uppercase tracking-wider text-brand-light/60 font-bold block"
               >
-                What's confusing you about it? (optional)
+                What&apos;s confusing you about it? (optional)
               </label>
               <textarea
                 id="confusion"
